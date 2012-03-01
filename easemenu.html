@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Easing Menu</title>
+    <meta name="author" content="Erwin Jove Gargalicano" />
+	<link media='screen' type='text/css' rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript">
+    (function($){
+        // plugin Name: Easing Menu
+        // Author: Erwin
+        // ver: 1.0
+        $.fn.EaseMenu = function(options, element){
+            
+            var defaults = {
+                menuEvenColor: '#CCC',
+                menuOddColor: '#C5DFE8',
+                startPadding: '10',
+                toAnimatePadding: '30',
+                animationDelay: '100'
+            };
+            
+            var options = $.extend(defaults, options)
+            
+            return this.each(function(){
+                var elem = $(this);
+                var items = $("a", elem);
+                var opt = options;
+                
+                items.mouseover(function(){
+                    $(this).animate({paddingLeft: opt.toAnimatePadding} , opt.animationDelay);
+
+                });
+                
+                items.mouseout(function(){
+                    $(this).animate({paddingLeft: opt.startPadding} , opt.animationDelay);
+                });
+                
+                elem.find('a:even').css('background-color', opt.menuEvenColor);
+                elem.find('a:odd').css('background-color', opt.menuOddColor);
+                
+            });
+            
+        }
+    })(jQuery);
+    
+    $(document).ready(function() {
+        
+        $('#menu').EaseMenu({
+            toAnimatePadding: '30',
+            animationDelay: '300'
+        });
+    });
+     
+    </script>
+</head>
+<body>
+ 
+<ul id="menu">
+    <li><a title="menu 1">Menu 1</a></li>
+    <li><a title="menu 2">Menu 2</a></li>
+    <li><a title="menu 3">Menu 3</a></li>
+    <li><a title="menu 4">Menu 4</a></li>
+</ul>
+ 
+</body>
+</html>

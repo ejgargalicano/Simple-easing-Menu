@@ -1,0 +1,4 @@
+body {font-family:arial;font-style:bold}
+a {color:#666; text-decoration:none; display: block; cursor:pointer}
+#menu {list-style:none;width:625px;padding-left:10px;}
+#menu li {margin:0;padding:5px;float: left; width: 125px; font-weight: bold; list-style: none; background: none}
